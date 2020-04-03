@@ -1,33 +1,33 @@
-from DB.FileHandlr import FileHandlr
+from HashMap import HashMap
+from FileHandlr import FileHandlr
 
 
-class Wordbank (FileHandlr) :
+class Wordbank (FileHandlr):
     ''' 
 
     '''
-    
-    def start(self) :
-        if self.data_to_append :
-            FileHandlr.append_data_to_file(self)
-        
-        elif self.line_to_replace : 
-            FileHandlr.change_line_in_file(self)
 
-        elif self.fieldname:
-            self.line_number = FileHandlr.does_line_exists(self)
-            return self.line_number
+    # def start(self) :
+    #     if self.data_to_append :
+    #         FileHandlr.append_data_to_file(self)
 
-        else :
-            FileHandlr.read_filestream_into_list(self)
-            return self.data_list
+    #     elif self.line_to_replace :
+    #         FileHandlr.change_line_in_file(self)
 
-        return
+    #     elif self.fieldname:
+    #         self.line_number = FileHandlr.does_line_exists(self)
+    #         return self.line_number
 
+    #     else :
+    #         FileHandlr.read_filestream_into_list(self)
+    #         return self.data_list
 
-    def __init__ (self, data_to_append=None, fieldname=None, searchparam=None, line_to_replace=None, replace_with=None ):
-    
-        self.filename = FileHandlr.STAFF_TABLE
-        self.header = FileHandlr.STAFF_TABLE_HEADER
+    #     return
+
+    def __init__(self, data_to_append=None, fieldname=None, searchparam=None, line_to_replace=None, replace_with=None):
+
+        self.filename = "./Data/Wordbank.txt"
+        self.header = ""
         self.data_to_append = data_to_append
         self.fieldname = fieldname
         self.searchparam = searchparam
@@ -35,8 +35,42 @@ class Wordbank (FileHandlr) :
         self.replace_with = replace_with
         self.filestream = None
 
+    def open_file(self):
+        ''' 
+        Opens a file and returns a filestream, or None if error.
+        Does not close the file!
+        '''
+        try:
+            f = open(self.filename, 'r', encoding='UTF-8')
+            return f
+        except:
+            return None
 
- buck = Bucket()
-    buck.insert(10, "lol")
-    buck.insert(11, "lel")
-    buck.update(11, "lop")
+    def read_filestream_into_list(self):
+        '''
+        Takes a filestream, returns a list with file contents.
+        Closes the file after reading it.
+        '''
+        self.filestream = self.open_file()
+        if not self.filestream:
+            return None
+
+        self.data_list = HashMap()
+        for line in self.filestream:
+            words = line.split(",")
+            if len(words) > 1:
+                data = ""
+                for i in range(1, len(words)):
+                    data += "," + words[i]
+            else:
+                data = ""
+            self.data_list.insert(words[0], data)
+            # data_list.append(line.strip())
+
+        self.filestream.close()  # Closes file after grabbing data from it
+
+
+if __name__ == "__main__":
+    bank = Wordbank()
+    file_stream = bank.read_filestream_into_list()
+    print(bank.data_list)
