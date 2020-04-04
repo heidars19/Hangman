@@ -1,7 +1,7 @@
 
 class MyHashableKey():
-    def __init__(self, integer, key_string):
-        self.num = integer
+    def __init__(self, integer_value, key_string):
+        self.num = integer_value
         self.skey = str(key_string)
 
     def __str__(self):
@@ -15,3 +15,8 @@ class MyHashableKey():
 
     def __eq__(self, other):
         return hash(self) == hash(other)
+
+
+if __name__ == "__main__":
+    myhash = MyHashableKey(16, "þúsundblaðarós")
+    print(hash(myhash))

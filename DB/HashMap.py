@@ -1,11 +1,11 @@
-from MyHashableKey import MyHashableKey
-from Errors import *
-from Bucket import Bucket
+from DB.MyHashableKey import MyHashableKey
+from DB.Errors import *
+from DB.Bucket import Bucket
 
 
 class HashMap():
     def __init__(self):
-        self.size = 4
+        self.size = 16
         self.list = [None for _ in range(self.size)]
         self.len = 0
 
@@ -24,7 +24,7 @@ class HashMap():
     def insert(self, key, data):
         '''Adds a key:value to the data structure. Creates a bucket if needed, or adds to an already existing one'''
         index = self.__index(self.size, key)
-
+        # print("key: {}, index: {}, data: {}".format(key, index, data))
         if self.list[index] == None:
             # Creates a bucket if none exists
             self.list[index] = Bucket()
