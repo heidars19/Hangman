@@ -3,6 +3,7 @@ import csv
 import fileinput
 import datetime
 import os
+import random
 
 class FileHandlr:
     ''' Abstract class for filehandling '''
@@ -29,17 +30,28 @@ class FileHandlr:
             
     def random(self) :
         ''' Pick a random word from Data Structure '''
+        random_map_value = random.randint(0, self.data_structure.size - 1)
         
-        return "þúsundblaðarós"
+        if self.data_structure.list[random_map_value] != None :
+            random_bucket_value = random.randint(0, len(self.data_structure.list[random_map_value]) - 1)
+
+            word = self.data_structure.list[random_map_value].top
+            if random_bucket_value > 0 :    
+                for _ in range(random_bucket_value) :
+                    word = word.next
+            return word.key + "," + word.data.strip("[, ]")
+        else :
+            return self.random()
+        
+
     
     def update(self, key, data) :
         ''' Updates a value pair corresponding to given key '''
-        # print("key: {} og data: {}".format(key, data))
         self.data_structure.update(key, data) # updated data structure
         self.__update_file(key, data) # updates file
 
 
-    def remove_file(file_to_remove) :
+    def __remove_file(self, file_to_remove) :
         try :
             if os.path.exists(file_to_remove): # Checks if .bak file exists and removes it if it does
                 try :
@@ -62,6 +74,7 @@ class FileHandlr:
         except :
             return False
         return True
+
 
     def list_to_str(data) :
         temp_str = ""
@@ -86,6 +99,10 @@ class FileHandlr:
 
         catch_return = self.write_back(BACKUP_FILE)  # Write back over original file
         if catch_return :
-            return FileHandlr.remove_file(BACKUP_FILE)  # Remove backup file
+            return self.__remove_file(BACKUP_FILE)  # Remove backup file
         else :
             return catch_return
+        
+        
+        
+        

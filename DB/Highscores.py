@@ -1,3 +1,7 @@
+
+from DB.FileHandlr import FileHandlr
+
+
 class Highscores :
     
     def __init__(self, data_to_append=None, update_key=None, update_with=None):

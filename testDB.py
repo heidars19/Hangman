@@ -8,11 +8,11 @@ def main():
     picked_word = wordbank.random()
 
 
-    data = ['1','1','7','12.03.2020']
-    print(picked_word)
-    wordbank.update(picked_word, data)
+    # print(picked_word)
+    # first_word = picked_word.split(',')
+    # print(first_word[0])
+    # wordbank.update(first_word[0], first_word[1:])
 
-    print(wordbank.data_structure)
 
     return
 
