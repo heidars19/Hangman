@@ -1,7 +1,6 @@
 from DB.DATA_API import *
 
 class Hangman :
-
     def __init__(self) :
         self.wordbank = Wordbank()
         self.wordbank.read_file_to_datastructure()
@@ -11,16 +10,23 @@ class Hangman :
         self.buffer_word = None
         self.dash_line = None
         self.gameon = False # Game in progress or game over
-
+        self.user = None
         self.result = False # Win or loss
 
 
     def set_max_wrong_guesses(self, number_of_guesses) :
-        if number_of_guesses > 0 :
+        ''' Changes maximum guesses for each game. Default is 10 '''
+        if number_of_guesses > 0 and isinstance(number_of_guesses, int)  :
             self.max_wrong_guesses = number_of_guesses
 
 
+    def set_user(self, user) :
+        ''' Sets name for current user (username). '''
+        self.user = user
+
+
     def print_dashline(self) :
+        ''' Prints out the dashline with '_' in place of letters yet to be guessed. '''
         buffer_dashline = ""
         for letter in self.dash_line :
             buffer_dashline += letter + " "
@@ -29,7 +35,7 @@ class Hangman :
         
 
     def fill_dash_line(self, user_input) :
-        
+        ''' Fills in dashline with guessed letter, replaces '_' with letters. '''
         for i, letter in enumerate(self.word) :
             if letter == user_input :
                 buffer_word = ""
@@ -43,7 +49,8 @@ class Hangman :
         
 
     def compare_sting(self, user_input):
-        
+        ''' Checks if user input is a correct guess or not.\n
+        Returns True if game has been won. '''
         if len(user_input) > 1 :
             self.guesses += 1
             if user_input == self.word :
@@ -55,24 +62,19 @@ class Hangman :
             if user_input in self.dash_line :
                 return False # Returns without increasing guesses, cause it's already been guessed
             elif user_input in self.word :
-                # print(" Dash line: {}".format(self.dash_line))
                 self.fill_dash_line(user_input)
-                # self.guesses += 1
                 if user_input == self.dash_line :
                     return True # All '-' have been replaced in dash_line
                 return False
             else :
                 self.guesses += 1
                 return False
-        
-            # Bogus input
         return False
 
     def register_results(self) :
+        ''' Updates statistics behind a word.\n
+        Updates both data structure and file. '''
         data = self.wordbank.find(self.word).strip('\'\n"[]').split(',')
-
-        # print("register data: {}".format(data))
-
         data[0] = str(int(data[0]) + 1)
         if self.result : # True if win
             data[1] = str(int(data[1]) + 1)
@@ -83,9 +85,10 @@ class Hangman :
         data[3] = str(datetime.date.today())
 
         self.wordbank.update(self.word, data)
-        # print("register data: {}".format(data))
+
 
     def print_game_end(self, win) :
+        ''' Prints end-of-game splash screen, win or loose. '''
         win_str = ""
         if win :
             win_str = "#  Þú vannst, Til hamingju  #"
@@ -101,7 +104,7 @@ class Hangman :
 
 
     def play(self):
-        
+        ''' Setur leikinn af stað. Breytist líklega þegar UI verður klárað. '''
         random_word = self.wordbank.random().split(',')
         self.word = self.buffer_word = random_word[0]
         self.dash_line = "_" * len(self.word)
@@ -121,12 +124,9 @@ class Hangman :
             if self.guesses >= self.max_wrong_guesses :
                 self.gameon = self.result = False
             
-            # print("Dash line: {}".format(self.dash_line))
-            # print("Word: {}".format(self.word))
         if not self.gameon :
             self.register_results()
             self.print_game_end(self.result)
 
 
-    # self.play()
 
