@@ -1,9 +1,16 @@
-from LL.LL_Functions import *
-from LL.LL_API import *
+# from LL.Hangman_logic import Hangman
+from LL.Hangman import Hangman
 
 
+            
 def main():
-  # Skipanir til að testa
+    new_game = Hangman()
+    new_game.play()
+    # reset result if playing again
+    # new_game.result = False
+
+
+
 
     return
 

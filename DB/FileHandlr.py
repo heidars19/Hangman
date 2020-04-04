@@ -17,13 +17,23 @@ class FileHandlr:
     def __init__ (self) :
         pass
 
+
+    def find(self, key) :    
+        return self.data_structure.find(key)
+    
     def read_file_to_datastructure(self) :
         with open(self._filename, 'r', encoding='utf-8') as file_original : 
             self.data_structure = HashMap()
             for line in file_original:
                 words = line.split(",")
                 if len(words) > 1:
-                    data = str(words[1:])
+                    data = ""
+                    for element in words[1:]:
+                        if data != "":
+                            data += ',' + element.strip("'\"[]\n")
+                        else :
+                            data += element.strip("'\"[]\n")
+                    # data = str(words[1:])
                 else:
                     data = []
                 self.data_structure.insert(words[0].strip(), data)
@@ -39,7 +49,8 @@ class FileHandlr:
             if random_bucket_value > 0 :    
                 for _ in range(random_bucket_value) :
                     word = word.next
-            return word.key + "," + word.data.strip("[, ]")
+            # print("Data: {}, key: {}".format(word.data, word.key))
+            return word.key + "," + word.data.strip("[']")
         else :
             return self.random()
         
@@ -76,7 +87,7 @@ class FileHandlr:
         return True
 
 
-    def list_to_str(data) :
+    def __list_to_str(self, data) :
         temp_str = ""
         for element in data :
             temp_str += "," + element.strip()
@@ -92,7 +103,7 @@ class FileHandlr:
                 for line in file_original:
                     key_word = line.split(',')
                     if key_word[0].strip() == key :
-                        file_bak.write(key + FileHandlr.list_to_str(data) + '\n')
+                        file_bak.write(key + self.__list_to_str(data) + '\n')
                     else :
                         file_bak.write(line)
 

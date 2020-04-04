@@ -6,7 +6,7 @@ def update_file() :
     with open(filename, 'r', encoding='utf-8') as file_original:
         with open(BACKUP_FILE, 'w+', encoding='utf-8') as file_bak:
             for line in file_original:
-                file_bak.write( line.strip() + ",,,,\n")
+                file_bak.write( line.strip() + ",0,0,0,01.01.2020\n")
 
     
     
