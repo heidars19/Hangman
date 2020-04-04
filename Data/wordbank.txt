@@ -2,13 +2,13 @@ word,used,wins,guesses,last_played
 þjóðflokkur,0,0,0,01.01.2020
 adamsepli,0,0,0,01.01.2020
 afgreiðsluborð,0,0,0,01.01.2020
-afmælisgjöf,0,0,0,01.01.2020
+afmælisgjöf,1,0,10,2020-04-04
 afríkufíll,0,0,0,01.01.2020
 afstæðiskenning,0,0,0,01.01.2020
 afturbatapíka,0,0,0,01.01.2020
 afturelding,0,0,0,01.01.2020
 afturhald,0,0,0,01.01.2020
-afturhaldsstefna,0,0,0,01.01.2020
+afturhaldsstefna,1,1,6,2020-04-04
 akbraut,0,0,0,01.01.2020
 Akranes,0,0,0,01.01.2020
 akrein,0,0,0,01.01.2020
@@ -23,7 +23,7 @@ aldingarður,0,0,0,01.01.2020
 aldursmunur,0,0,0,01.01.2020
 alpahúfa,0,0,0,01.01.2020
 andaglas,0,0,0,01.01.2020
-andarungi,0,0,0,01.01.2020
+andarungi,1,1,9,2020-04-04
 andvarp,0,0,0,01.01.2020
 annríki,0,0,0,01.01.2020
 apamaður,0,0,0,01.01.2020
@@ -42,7 +42,7 @@ augnfró,0,0,0,01.01.2020
 augnlæknir,0,0,0,01.01.2020
 augntönn,0,0,0,01.01.2020
 Austurland,0,0,0,01.01.2020
-Austurríkismaður,0,0,0,01.01.2020
+Austurríkismaður,1,1,17,2020-04-04
 auðnutittlingur,0,0,0,01.01.2020
 auðvald,0,0,0,01.01.2020
 axhæra,0,0,0,01.01.2020
@@ -50,7 +50,7 @@ axlabönd,0,0,0,01.01.2020
 aðdráttarafl,0,0,0,01.01.2020
 aðdráttur,0,0,0,01.01.2020
 aðdáandi,0,0,0,01.01.2020
-aðfangadagur,0,0,0,01.01.2020
+aðfangadagur,1,1,24,2020-04-04
 aðfaranótt,0,0,0,01.01.2020
 aðgát,0,0,0,01.01.2020
 aðskilnaðarstefna,0,0,0,01.01.2020

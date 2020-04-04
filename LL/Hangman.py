@@ -5,7 +5,7 @@ class Hangman :
     def __init__(self) :
         self.wordbank = Wordbank()
         self.wordbank.read_file_to_datastructure()
-        self.max_wrong_guesses = 8
+        self.max_wrong_guesses = 10
         self.guesses = 0
         self.word = None
         self.buffer_word = None
@@ -49,6 +49,7 @@ class Hangman :
             if user_input == self.word :
                 return True
             else :
+                self.guesses += 1
                 return False
         elif len(user_input) == 1 :
             if user_input in self.dash_line :
@@ -56,8 +57,7 @@ class Hangman :
             elif user_input in self.word :
                 # print(" Dash line: {}".format(self.dash_line))
                 self.fill_dash_line(user_input)
-
-                self.guesses += 1
+                # self.guesses += 1
                 if user_input == self.dash_line :
                     return True # All '-' have been replaced in dash_line
                 return False
@@ -68,7 +68,7 @@ class Hangman :
             # Bogus input
         return False
 
-    def register_results(self, result) :
+    def register_results(self) :
         data = self.wordbank.find(self.word).strip('\'\n"[]').split(',')
 
         # print("register data: {}".format(data))
@@ -85,7 +85,20 @@ class Hangman :
         self.wordbank.update(self.word, data)
         # print("register data: {}".format(data))
 
-    
+    def print_game_end(self, win) :
+        win_str = ""
+        if win :
+            win_str = "#  Þú vannst, Til hamingju  #"
+        else :
+            win_str = "#  Þú tapaðir, gengur betur næst!  #"
+        str1 = "#" * len(win_str)
+        str2 = "#" +  (" " * (len(win_str)-2)) + "#"
+        print(str1)
+        print(str2)
+        print(win_str)
+        print(str2)
+        print(str1)
+
 
     def play(self):
         
@@ -100,15 +113,20 @@ class Hangman :
                 self.gameon = False # Game over
                 break
             
+            print("Þú átt {} tilraunir eftir.".format(self.max_wrong_guesses - self.guesses))
             user_input = input("Guess the word: ")
             
             self.result = self.compare_sting(user_input)
             print(self.print_dashline())
+            if self.guesses >= self.max_wrong_guesses :
+                self.gameon = self.result = False
             
             # print("Dash line: {}".format(self.dash_line))
             # print("Word: {}".format(self.word))
         if not self.gameon :
-            self.register_results(True)
+            self.register_results()
+            self.print_game_end(self.result)
+
 
     # self.play()
 
