@@ -102,35 +102,36 @@ class FileHandlr:
     def __update_file(self, key, data) :
         ''' Updates file, changes 1 line where 'key' dictates, with 'data'. '''
         BACKUP_FILE = self._filename +'.bak'        
-        # with open(self._filename, mode='rt') as file_original: 
-        #     with open('sorted.csv', 'w') as file_bak:
-        #         writer = csv.writer(file_bak, delimiter=',')
-        #         reader = csv.reader(file_original, delimiter=',')
-        #         next(reader) # Skips header row
+        with open(self._filename, mode='rt', encoding='utf-8') as file_original: 
+            with open(BACKUP_FILE, 'w', encoding='utf-8', newline='') as file_bak:
+                writer = csv.writer(file_bak, delimiter=',')
+                reader = csv.reader(file_original, delimiter=',')
+                # header = next(reader) # Skips header row
+                writer.writerow(next(reader)) # Writes header at top
+                # print("Key: {}, header: {}".format(key, header))
+                for line in reader:
+                    # key_word = line.split(',')
+                    if line[0].strip() == key :
+                        data.insert(0, key)
+                        writer.writerow(data)
+                        # break
+                    else :
+                        # print("line[0]: {}, line: {}".format(line[0], line))
+                        writer.writerow(line)
                 
+                # sorted2 = sorted(reader, key=lambda row: (int(row[3]), int(row[2])))        
+                # for row in sorted2:
+                #     writer.writerow(row)
+                
+        # BACKUP_FILE = self._filename +'.bak'
+        # with open(self._filename, 'r', encoding='utf-8') as file_original:
+        #     with open(BACKUP_FILE, 'w+', encoding='utf-8') as file_bak:
         #         for line in file_original:
         #             key_word = line.split(',')
         #             if key_word[0].strip() == key :
         #                 file_bak.write(key + self.__list_to_str(data) + '\n')
         #             else :
         #                 file_bak.write(line)
-                
-        #         sorted2 = sorted(reader, key=lambda row: (int(row[2]), int(row[3])))        
-        #         for row in sorted2:
-        #             writer.writerow(row)
-                    
-                
-                
-                
-        BACKUP_FILE = self._filename +'.bak'
-        with open(self._filename, 'r', encoding='utf-8') as file_original:
-            with open(BACKUP_FILE, 'w+', encoding='utf-8') as file_bak:
-                for line in file_original:
-                    key_word = line.split(',')
-                    if key_word[0].strip() == key :
-                        file_bak.write(key + self.__list_to_str(data) + '\n')
-                    else :
-                        file_bak.write(line)
 
         catch_return = self.write_back(BACKUP_FILE)  # Write back over original file
         if catch_return :

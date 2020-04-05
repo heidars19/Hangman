@@ -1,3 +1,4 @@
+word,used,wins,guesses,last_played
 adamsepli
 afgreiðsluborð
 afmælisgjöf
