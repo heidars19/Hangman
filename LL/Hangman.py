@@ -78,7 +78,7 @@ class Hangman :
     def register_results(self) :
         ''' Updates statistics behind a word.\n
         Updates both data structure and file. '''
-        data = self.wordbank.find(self.word).strip('\'\n"[]').split(',')
+        data = self.wordbank.find(self.word)#.strip('\'\n"[]').split(',')
         data[0] = str(int(data[0]) + 1)
         if self.result : # True if win
             data[1] = str(int(data[1]) + 1)

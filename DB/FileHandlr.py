@@ -1,4 +1,5 @@
 from DB.HashMap import HashMap
+from DB.Bucket import Bucket
 import csv
 import fileinput
 import datetime
@@ -25,20 +26,13 @@ class FileHandlr:
 
     def read_file_to_datastructure(self) :
         ''' Reads file into HashMap structure. '''
-        with open(self._filename, 'r', encoding='utf-8') as file_original : 
+        with open(self._filename, mode='rt', encoding='utf-8') as file_original: 
+            reader = csv.reader(file_original, delimiter=',')
+            header = next(reader) # Skips header row
             self.data_structure = HashMap()
-            for line in file_original:
-                words = line.split(",")
-                if len(words) > 1:
-                    data = ""
-                    for element in words[1:]:
-                        if data != "":
-                            data += ',' + element.strip("'\"[]\n")
-                        else :
-                            data += element.strip("'\"[]\n")
-                else:
-                    data = []
-                self.data_structure.insert(words[0].strip(), data)
+            for line in reader:
+                if len(line) > 1:
+                    self.data_structure.insert(line[0], line[1:])
 
 
     def random(self) :
@@ -51,7 +45,7 @@ class FileHandlr:
             if random_bucket_value > 0 :    
                 for _ in range(random_bucket_value) :
                     word = word.next
-            return word.key + "," + word.data.strip("[']")
+            return word.key + "," + str(word.data).strip("[']")
         else :
             return self.random()
 
@@ -106,9 +100,15 @@ class FileHandlr:
             with open(BACKUP_FILE, 'w', encoding='utf-8', newline='') as file_bak:
                 writer = csv.writer(file_bak, delimiter=',')
                 reader = csv.reader(file_original, delimiter=',')
-                # header = next(reader) # Skips header row
-                writer.writerow(next(reader)) # Writes header at top
+                header = next(reader) # Skips header row
+                writer.writerow(header) # Writes header at top
                 # print("Key: {}, header: {}".format(key, header))
+                if header[0] == 'id' :
+                    
+                    reader_sorted = sorted(reader, key=lambda row: (int(row[3]), int(row[2])))        
+                    reader = reader_sorted
+                    
+                
                 for line in reader:
                     # key_word = line.split(',')
                     if line[0].strip() == key :
@@ -119,19 +119,9 @@ class FileHandlr:
                         # print("line[0]: {}, line: {}".format(line[0], line))
                         writer.writerow(line)
                 
-                # sorted2 = sorted(reader, key=lambda row: (int(row[3]), int(row[2])))        
-                # for row in sorted2:
-                #     writer.writerow(row)
                 
-        # BACKUP_FILE = self._filename +'.bak'
-        # with open(self._filename, 'r', encoding='utf-8') as file_original:
-        #     with open(BACKUP_FILE, 'w+', encoding='utf-8') as file_bak:
-        #         for line in file_original:
-        #             key_word = line.split(',')
-        #             if key_word[0].strip() == key :
-        #                 file_bak.write(key + self.__list_to_str(data) + '\n')
-        #             else :
-        #                 file_bak.write(line)
+                
+
 
         catch_return = self.write_back(BACKUP_FILE)  # Write back over original file
         if catch_return :
