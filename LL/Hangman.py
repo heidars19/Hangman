@@ -10,7 +10,7 @@ class Hangman :
         self.buffer_word = None
         self.dash_line = None
         self.gameon = False # Game in progress or game over
-        self.user = None
+        self.user = ""
         self.result = False # Win or loss
 
 
@@ -24,7 +24,7 @@ class Hangman :
         ''' Sets name for current user (username). '''
         self.user = user
 
-    def get_user(self, user) :
+    def get_user(self) :
         ''' Returns name for current user (username). '''
         return self.user
 

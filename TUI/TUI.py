@@ -1,5 +1,6 @@
 class TUI():
     def __init__(self):
+        self.user = "(S)et user"
         self.main_menu = """
  /$$   /$$                                                                
 | $$  | $$                                                                
@@ -15,7 +16,8 @@ class TUI():
 """
         self.menu_selection = """
                         Type in the character to select operation
-                        (P)lay        (H)ighscores         (Q)uit        
+                (S)et user        (P)lay        (H)ighscores         (Q)uit        
+
         """
         self.wrong_selection = """
                                                                                  /$$                       /$$     /$$                    
@@ -30,7 +32,37 @@ class TUI():
                                             |  $$$$$$/                                                                                    
                                              \______/                                                                                     """
 
+
+        self.hiscore_header = """
+ /$$  /$$   /$$                                                                         
+| $$ | $$  |__/                                                                                        
+| $$ | $$   /$$                 /$$$$$$$   /$$$$$$$    /$$$$$$    /$$ $$$$    /$$$$$$
+| $$$$$$$  | $$    /$$$$$$$    /$$_____/  /$$_____/   /$$__  $$  | $$$ _ $$  /$$__  $$
+| $$ | $$  | $$   |_______/   |  $$$$$$  | $$        | $$  \ $$  | $$_/ \_/ | $$$$$$$$
+| $$ | $$  | $$                \____  $$ | $$        | $$  | $$  | $$       | $$_____/
+| $$ | $$  | $$                /$$$$$$$/ |  $$$$$$$  |  $$$$$$/  | $$       |  $$$$$$$
+|__/ |___/ |__/               |_______/   \_______/   \______/   |__/        \_______/
+                                                                                                                                    """
+
+
     def print_menu(self):
         print(self.main_menu+self.menu_selection)
+
     def print_wrong(self):
         print(self.wrong_selection)
+        
+    def print_hiscores(self, bucket) :
+        print(self.hiscore_header)
+        
+        header= "Sæti Nafn     Vinningar  Ágiskanir    Dags"
+        print(header)
+        for i in range(10) :
+            hiscore_list = bucket.data
+            print(" {} ---- {} ---- {} ---- {} ---- {}".format(i, hiscore_list[0], hiscore_list[1], hiscore_list[2], hiscore_list[3]))
+            bucket = bucket.next
+        
+        # print(bucket)
+
+        
+        
+        

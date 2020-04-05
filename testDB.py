@@ -9,8 +9,9 @@ def main():
     data = ['Heidar', '12', '22', '2020-04-04']
     # print(highscores.data_structure)
     highscores.update(data)
-    # print(highscores.data_structure.top.data) # prentar út besta skorið
-    # print(highscores.data_structure.top.next.data) # prentar út næst besta skorið
+    print(highscores.data_structure.top.data) # prentar út besta skorið
+    print("\n"*20)
+    print(highscores.data_structure.top.next.data) # prentar út næst besta skorið
     
     
     # wordbank = Wordbank()

@@ -10,27 +10,36 @@ class API():
     def start_game(self):
         self.hang.play()
     def get_hiscores(self):
-        pass
+        self.hi.read_file_to_datastructure()
+        
     def game_loop(self):
         while True:
-            for i in range(20):
-                    print()
+            print("\n"*20)
             self.tui.print_menu()
-            uInput = input()
+            if self.hang.get_user() == "" :
+                uInput = input("Make your choice: ")
+            else :
+                uInput = input(self.hang.get_user() + ": ")
             if uInput == "p" or uInput == "P":
-                for i in range(20):
-                    print()
+                print("\n"*20)
                 self.start_game()
-                time.sleep(2)
+                # time.sleep(2)
+                input()
             elif uInput == "h" or uInput == "H":
                 self.get_hiscores()
+                print("\n"*20)
+                self.tui.print_hiscores(self.hi.data_structure.top)
+                # print_hiscores(self.hi.data_structure)
+                input()
             elif uInput == "q" or uInput == "Q":
-                for i in range(20):
-                    print()
+                print("\n"*20)
                 break
+            elif uInput == "s" or uInput == "S":
+                print("\n"*20)
+                username = input("Choose a username: ")
+                self.hang.set_user(username)
             else:
-                for i in range(20):
-                    print()
+                print("\n"*20)
                 self.tui.print_wrong()
                 time.sleep(2)
 

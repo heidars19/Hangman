@@ -15,8 +15,6 @@ class Highscores (FileHandlr):
         ''' Updates a value pair corresponding to given key '''
         key = self.__get_next_id()
         self.__append_to_file(key, data)
-        # self.data_structure.update(key, data) # updated data structure
-        # self.__update_file(key, data) # updates file
         self.read_file_to_datastructure()
         
     def __get_next_id(self) :
@@ -38,26 +36,10 @@ class Highscores (FileHandlr):
         return temp_str   
     
     def __append_to_file(self, key, data) :
-        # print("Key: {}, Data: {}".format(key, data))
-        # data = data.insert(0, key)
-        # print(data)
         new_line = "\n" + str(key) + self.__list_to_str(data)
         print(new_line)
         with open(self._filename, 'a', encoding='UTF-8') as file_to_append_to:
             file_to_append_to.write(new_line)
-            
-                   
-        # with open(self._filename, mode='rt', encoding='utf-8') as file_original: 
-        #     with open(BACKUP_FILE, 'w', encoding='utf-8', newline='') as file_bak:
-        #         writer = csv.writer(file_bak, delimiter=',')
-        #         reader = csv.reader(file_original, delimiter=',')
-        #         header = next(reader) # Skips header row
-        #         writer.writerow(header) # Writes header at top
-        #         # print("Key: {}, header: {}".format(key, header))
-        #         if header[0] == 'id' :
-                    
-        #             reader_sorted = sorted(reader, key=lambda row: (int(row[3]), int(row[2])))        
-        #             reader = reader_sorted
                     
                     
     def read_file_to_datastructure(self) :

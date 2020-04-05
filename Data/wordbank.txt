@@ -14,7 +14,7 @@ Akranes,0,0,0,01.01.2020
 akrein,0,0,0,01.01.2020
 akurarfi,0,0,0,01.01.2020
 Akureyri,0,0,0,01.01.2020
-akurgæs,0,0,0,01.01.2020
+akurgæs,1,0,10,2020-04-05
 akurstjarna,0,0,0,01.01.2020
 akuryrkja,0,0,0,01.01.2020
 alaskavíðir,1,0,10,2020-04-05
@@ -30,7 +30,7 @@ apamaður,0,0,0,01.01.2020
 appelsínugulur,0,0,0,01.01.2020
 appelsínusafi,1,1,6,2020-04-05
 armband,0,0,0,01.01.2020
-armbandsúr,0,0,0,01.01.2020
+armbandsúr,1,1,7,2020-04-05
 aronsvöndur,1,0,10,2020-04-05
 atkvæðagreiðsla,0,0,0,01.01.2020
 atviksorð,0,0,0,01.01.2020
