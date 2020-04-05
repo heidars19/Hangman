@@ -24,15 +24,18 @@ class Hangman :
         ''' Sets name for current user (username). '''
         self.user = user
 
+    def get_user(self, user) :
+        ''' Returns name for current user (username). '''
+        return self.user
+
 
     def print_dashline(self) :
         ''' Prints out the dashline with '_' in place of letters yet to be guessed. '''
         buffer_dashline = ""
         for letter in self.dash_line :
             buffer_dashline += letter + " "
-        return buffer_dashline.strip()    
-        
-        
+        return buffer_dashline.strip() 
+
 
     def fill_dash_line(self, user_input) :
         ''' Fills in dashline with guessed letter, replaces '_' with letters. '''
