@@ -57,6 +57,7 @@ class Hangman :
         if len(user_input) > 1 :
             self.guesses += 1
             if user_input == self.word :
+                self.dash_line = self.word
                 return True
             else :
                 self.guesses += 1
@@ -111,25 +112,115 @@ class Hangman :
         random_word = self.wordbank.random().split(',')
         self.word = self.buffer_word = random_word[0]
         self.dash_line = "_" * len(self.word)
-
+        self.chr_list = []
         self.gameon = True
+        
         while self.gameon :
+            self.duplicate_selection = False
             if self.word == self.dash_line:
                 self.result = True
                 self.gameon = False # Game over
                 break
-            
-            print("Þú átt {} tilraunir eftir.".format(self.max_wrong_guesses - self.guesses))
             user_input = input("Guess the word: ")
-            
-            self.result = self.compare_sting(user_input)
+            if len(user_input) == 1:
+                if user_input not in self.chr_list:
+                    self.chr_list.append(user_input)
+                else:
+                    self.duplicate_selection = True
+            for i in range(50):
+                print()
+            print("Þú átt {} tilraunir eftir.".format(self.max_wrong_guesses - self.guesses))
+            print("Valdir stafir: " + str(self.chr_list))
+            if self.duplicate_selection == False:
+                self.result = self.compare_sting(user_input)
+            else:
+                print("Stafur nú þegar valin")
             print(self.print_dashline())
             if self.guesses >= self.max_wrong_guesses :
                 self.gameon = self.result = False
-            
+            print(self.hangman_picture())
         if not self.gameon :
             self.register_results()
             self.print_game_end(self.result)
 
 
-
+    def hangman_picture(self):
+        HANGMANPICS = ['''
+         
+             
+             
+             
+             
+             
+        =========''','''
+         
+             
+             
+             
+             |
+             |
+        =========''','''
+         
+             |
+             |
+             |
+             |
+             |
+        =========''','''
+         +---+
+             |
+             |
+             |
+             |
+             |
+        =========''','''
+         +---+
+         |   |
+             |
+             |
+             |
+             |
+        =========''', '''
+         +---+
+         |   |
+         O   |
+             |
+             |
+             |
+        =========''', '''
+         +---+
+         |   |
+         O   |
+         |   |
+             |
+             |
+        =========''', '''
+         +---+
+         |   |
+         O   |
+        /|   |
+             |
+             |
+        =========''', '''
+         +---+
+         |   |
+         O   |
+        /|\  |
+             |
+             |
+        =========''', '''
+         +---+
+         |   |
+         O   |
+        /|\  |
+        /    |
+             |
+        =========''', '''
+         +---+
+         |   |
+         O   |
+        /|\  |
+        / \  |
+             |
+        =========''']
+        return HANGMANPICS[self.guesses]
