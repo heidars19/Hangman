@@ -41,7 +41,7 @@ class API():
             elif uInput == "h" or uInput == "H":
                 self.get_hiscores()
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
-                self.tui.print_hiscores(self.hi.data_structure.top)
+                self.tui.print_hiscores(self.hi.data_structure)
                 print()
                 input("Ýttu á enter til að halda áfram.")
             elif uInput == "q" or uInput == "Q":
@@ -53,15 +53,24 @@ class API():
                         self.hi.update(new_highscore_line)
                 break
             elif uInput == "s" or uInput == "S":
-                print("\n" * API.NUMBER_OF_EMPTY_LINES)
-                username = input("Choose a username: ")
+                while True:
+                    print("\n" * API.NUMBER_OF_EMPTY_LINES)
+                    print(self.tui.user_text)
+                    username = input("Choose a username: ")
+                    if len(username) > 10:
+                        print("Username to long")
+                        time.sleep(2)
+                    else:
+                        break
                 if self.hang.get_user() != "" : # if changing user instead first user, write old user down
                     new_highscore_line = self.hang.user_status()
-                    self.hi.update(new_highscore_line)
+                    if int(new_highscore_line[1]) > 0 : # if atleast 1 win
+                        self.hi.update(new_highscore_line)
                 self.hang.set_user(username)
                 self.hang.set_max_wrong_guesses() # Resets maximum guesses to default on new user (10)
             elif uInput == "g" or uInput == "G":
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
+                print(self.tui.guess_text)
                 max_guesses = input("Enter new maximum guesses (default 10): ")
                 try :
                     max_guesses = int(max_guesses)

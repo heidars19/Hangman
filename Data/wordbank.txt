@@ -1,7 +1,7 @@
 word,used,wins,guesses,last_played
 þjóðflokkur,0,0,0,01.01.2020
 adamsepli,1,1,7,2020-04-06
-afgreiðsluborð,0,0,0,01.01.2020
+afgreiðsluborð,1,0,14,2020-04-06
 afmælisgjöf,1,0,10,2020-04-04
 afríkufíll,0,0,0,01.01.2020
 afstæðiskenning,0,0,0,01.01.2020
@@ -44,7 +44,7 @@ augntönn,1,0,10,2020-04-06
 Austurland,0,0,0,01.01.2020
 Austurríkismaður,2,1,27,2020-04-06
 auðnutittlingur,0,0,0,01.01.2020
-auðvald,0,0,0,01.01.2020
+auðvald,1,0,10,2020-04-06
 axhæra,0,0,0,01.01.2020
 axlabönd,0,0,0,01.01.2020
 aðdráttarafl,0,0,0,01.01.2020
@@ -52,7 +52,7 @@ aðdráttur,0,0,0,01.01.2020
 aðdáandi,0,0,0,01.01.2020
 aðfangadagur,1,1,24,2020-04-04
 aðfaranótt,0,0,0,01.01.2020
-aðgát,1,1,8,2020-04-06
+aðgát,2,1,23,2020-04-06
 aðskilnaðarstefna,1,1,4,2020-04-05
 aðstoðarforstjóri,0,0,0,01.01.2020
 aðstoðarmaður,0,0,0,01.01.2020
@@ -98,4 +98,4 @@ biðröð,0,0,0,01.01.2020
 biðtími,1,0,10,2020-04-04
 bjórvömb,0,0,0,01.01.2020
 Björnsdóttir,0,0,0,01.01.2020
-bjúgstör,0,0,0,01.01.2020
+bjúgstör,1,0,10,2020-04-06

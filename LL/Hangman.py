@@ -41,10 +41,10 @@ class Hangman :
 
     def fill_dash_line(self, user_input) :
         ''' Fills in dashline with guessed letter, replaces '_' with letters. '''
-        for i, letter in enumerate(self.word) :
+        for i, letter in enumerate(self.word.lower()) :
             if letter == user_input :
                 buffer_word = ""
-                for j, lette in enumerate(self.dash_line) :
+                for j, lette in enumerate(self.dash_line.lower()) :
                     if j == i :
                         buffer_word += user_input
                     else :
@@ -57,19 +57,18 @@ class Hangman :
         ''' Checks if user input is a correct guess or not.\n
         Returns True if game has been won. '''
         if len(user_input) > 1 :
-            self.guesses += 1
-            if user_input == self.word :
+            if user_input.lower() == self.word.lower() :
                 self.dash_line = self.word
                 return True
             else :
                 self.guesses += 1
                 return False
         elif len(user_input) == 1 :
-            if user_input in self.dash_line :
+            if user_input.lower() in self.dash_line.lower() :
                 return False # Returns without increasing guesses, cause it's already been guessed
-            elif user_input in self.word :
+            elif user_input.lower() in self.word.lower() :
                 self.fill_dash_line(user_input)
-                if user_input == self.dash_line :
+                if user_input.lower() == self.dash_line.lower() :
                     return True # All '-' have been replaced in dash_line
                 return False
             else :
@@ -139,11 +138,18 @@ class Hangman :
         
         while self.gameon :
             self.duplicate_selection = False
-            if self.word == self.dash_line:
+            if self.word.lower() == self.dash_line.lower():
                 self.result = True
                 self.gameon = False # Game over
                 break
-            user_input = input("({})Settu inn ágiskun: ".format(self.max_wrong_guesses))
+            while True:
+                user_input = input("({})Settu inn ágiskun: ".format(self.max_wrong_guesses))
+                if user_input.isalpha():
+                    break
+                else:
+                    print("Má bara giska á bókstafi, reyndu aftur")
+                    time.sleep(2)
+
             if len(user_input) == 1:
                 if user_input not in self.chr_list:
                     self.chr_list.append(user_input)
