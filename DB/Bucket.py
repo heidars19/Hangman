@@ -2,7 +2,12 @@ from DB.Errors import *
 
 
 class Bucket():
+    ''' Data structure based on SSL '''
+
     class SLL():
+        ''' Build-in class for use with Bucket.\n
+        Holds a key/value pair of data. '''
+
         def __init__(self, Key=None, Data=None, Next=None):
             self.key = Key
             self.data = Data
@@ -37,7 +42,6 @@ class Bucket():
                 if state == "insert":
                     raise ItemExistsException()
                 elif state == "update" or state == "set":
-                    # print("Update success")
                     buffer_node.data = data
                     return True
                 elif state == "find":
@@ -49,10 +53,8 @@ class Bucket():
                     buffer_node.next = buffer_node.next.next
                     self.size -= 1
                     return
-            # print("While loop in loopdy do: {}".format(buffer_node.key))
             buffer_node = buffer_node.next
         if state == "update" or state == "find" or state == "remove":
-            # print("From bucket, key: {}, node: {}".format(key, buffer_node.data))
             raise NotFoundException
         elif state == "contains":
             return False

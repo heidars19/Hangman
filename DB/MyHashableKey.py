@@ -1,5 +1,9 @@
 
 class MyHashableKey():
+    ''' Accepts intereg and a string.\n
+    Integer is the length of spread for the index,\n
+    String will be used for hash. '''
+
     def __init__(self, integer_value, key_string):
         self.num = integer_value
         self.skey = str(key_string)
