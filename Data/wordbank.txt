@@ -20,7 +20,7 @@ akuryrkja,0,0,0,01.01.2020
 alaskavíðir,1,0,10,2020-04-05
 alaskaösp,0,0,0,01.01.2020
 aldingarður,0,0,0,01.01.2020
-aldursmunur,0,0,0,01.01.2020
+aldursmunur,1,0,10,2020-04-06
 alpahúfa,0,0,0,01.01.2020
 andaglas,0,0,0,01.01.2020
 andarungi,1,1,9,2020-04-04
@@ -89,7 +89,7 @@ bensínsala,0,0,0,01.01.2020
 bensínstöð,0,0,0,01.01.2020
 bergkvika,1,1,40,2020-04-04
 bergsóley,0,0,0,01.01.2020
-beygingardæmi,0,0,0,01.01.2020
+beygingardæmi,1,1,5,2020-04-06
 beykitré,0,0,0,01.01.2020
 bifreið,0,0,0,01.01.2020
 birkitré,0,0,0,01.01.2020
