@@ -83,14 +83,17 @@ class Hangman :
     def register_results(self) :
         ''' Updates statistics behind a word.\n
         Updates both data structure and file. '''
+        
         data = self.wordbank.find(self.word)
+        
         if self.user != "" :
             if self.result : # Game won, so update results
-                self.user_guesses += int(data[2])
+                self.user_guesses += self.guesses
                 self.user_winstreak += 1
             else : # Game lost, so reset winstreaks
-                highscores = Highscores()
-                highscores.update(self.user_status())
+                if self.user_winstreak > 0 :
+                    highscores = Highscores()
+                    highscores.update(self.user_status())
                 self.user_guesses = 0
                 self.user_winstreak = 0
     
@@ -242,8 +245,8 @@ class Hangman :
              |
         =========''']
         
-        if self.max_wrong_guesses > 10 :
-            hangmanpic = self.guesses - self.max_wrong_guesses + 10
-            if hangmanpic < 0 :
-                hangmanpic = 0
+        # if self.max_wrong_guesses > 10 :
+        hangmanpic = self.guesses - self.max_wrong_guesses + 10
+        if hangmanpic < 0 :
+            hangmanpic = 0
         return HANGMANPICS[hangmanpic]

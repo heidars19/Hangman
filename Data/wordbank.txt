@@ -1,6 +1,6 @@
 word,used,wins,guesses,last_played
 þjóðflokkur,0,0,0,01.01.2020
-adamsepli,0,0,0,01.01.2020
+adamsepli,1,1,7,2020-04-06
 afgreiðsluborð,0,0,0,01.01.2020
 afmælisgjöf,1,0,10,2020-04-04
 afríkufíll,0,0,0,01.01.2020
@@ -19,7 +19,7 @@ akurstjarna,0,0,0,01.01.2020
 akuryrkja,0,0,0,01.01.2020
 alaskavíðir,1,0,10,2020-04-05
 alaskaösp,0,0,0,01.01.2020
-aldingarður,0,0,0,01.01.2020
+aldingarður,1,1,8,2020-04-06
 aldursmunur,2,0,22,2020-04-06
 alpahúfa,0,0,0,01.01.2020
 andaglas,0,0,0,01.01.2020
@@ -34,7 +34,7 @@ armbandsúr,1,1,7,2020-04-05
 aronsvöndur,1,0,10,2020-04-05
 atkvæðagreiðsla,0,0,0,01.01.2020
 atviksorð,0,0,0,01.01.2020
-atvikssaga,1,1,5,2020-04-05
+atvikssaga,2,2,9,2020-04-06
 augabrún,0,0,0,01.01.2020
 augljós,0,0,0,01.01.2020
 augnablik,2,1,18,2020-04-06
@@ -42,7 +42,7 @@ augnfró,0,0,0,01.01.2020
 augnlæknir,0,0,0,01.01.2020
 augntönn,1,0,10,2020-04-06
 Austurland,0,0,0,01.01.2020
-Austurríkismaður,1,1,17,2020-04-04
+Austurríkismaður,2,1,27,2020-04-06
 auðnutittlingur,0,0,0,01.01.2020
 auðvald,0,0,0,01.01.2020
 axhæra,0,0,0,01.01.2020
@@ -57,14 +57,14 @@ aðskilnaðarstefna,1,1,4,2020-04-05
 aðstoðarforstjóri,0,0,0,01.01.2020
 aðstoðarmaður,0,0,0,01.01.2020
 bakuggi,0,0,0,01.01.2020
-bakvörður,0,0,0,01.01.2020
+bakvörður,1,1,1,2020-04-06
 banabeður,2,2,17,2020-04-06
 bandalag,0,0,0,01.01.2020
 Bandaríkin,0,0,0,01.01.2020
 bankaútibú,0,0,0,01.01.2020
-bardagalist,1,1,2,2020-04-06
+bardagalist,2,1,14,2020-04-06
 barkakýli,1,0,10,2020-04-05
-barmmerki,0,0,0,01.01.2020
+barmmerki,1,1,4,2020-04-06
 barnalæknir,0,0,0,01.01.2020
 barnamosi,0,0,0,01.01.2020
 barnæska,0,0,0,01.01.2020
@@ -89,7 +89,7 @@ bensínsala,0,0,0,01.01.2020
 bensínstöð,0,0,0,01.01.2020
 bergkvika,1,1,40,2020-04-04
 bergsóley,0,0,0,01.01.2020
-beygingardæmi,1,1,5,2020-04-06
+beygingardæmi,2,1,7,2020-04-06
 beykitré,0,0,0,01.01.2020
 bifreið,0,0,0,01.01.2020
 birkitré,0,0,0,01.01.2020

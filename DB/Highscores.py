@@ -3,7 +3,6 @@ from DB.FileHandlr import FileHandlr
 from DB.Bucket import Bucket
 import csv
 
-
 class Highscores (FileHandlr):
     
     def __init__(self, data_to_append=None, update_key=None, update_with=None):
@@ -37,7 +36,6 @@ class Highscores (FileHandlr):
     
     def __append_to_file(self, key, data) :
         new_line = "\n" + str(key) + self.__list_to_str(data)
-        # print(new_line)
         with open(self._filename, 'a', encoding='UTF-8') as file_to_append_to:
             file_to_append_to.write(new_line)
                     
@@ -49,7 +47,6 @@ class Highscores (FileHandlr):
             header = next(reader) # Skips header row
             self.data_structure = Bucket()
             
-            # reader_sorted = sorted(reader, key=lambda row: (int(row[3]), int(row[2])))
             reader_sorted = sorted(reader, key=lambda row: int(row[3]), reverse=True)
             reader_sorted2 = sorted(reader_sorted, key=lambda row: int(row[2]))
             

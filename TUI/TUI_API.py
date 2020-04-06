@@ -46,14 +46,18 @@ class API():
                 input("Ýttu á enter til að halda áfram.")
             elif uInput == "q" or uInput == "Q":
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
-                if self.hang.get_user() == "" :
+                if self.hang.get_user() != "" :
                     # get info about winstreak and guesses
                     new_highscore_line = self.hang.user_status()
-                    self.hi.update(new_highscore_line)
+                    if int(new_highscore_line[1]) > 0 : # if atleast 1 win
+                        self.hi.update(new_highscore_line)
                 break
             elif uInput == "s" or uInput == "S":
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
                 username = input("Choose a username: ")
+                if self.hang.get_user() != "" : # if changing user instead first user, write old user down
+                    new_highscore_line = self.hang.user_status()
+                    self.hi.update(new_highscore_line)
                 self.hang.set_user(username)
                 self.hang.set_max_wrong_guesses() # Resets maximum guesses to default on new user (10)
             elif uInput == "g" or uInput == "G":
@@ -65,6 +69,8 @@ class API():
                 except :
                     print("You have to type in a number")
                     time.sleep(2)
+            elif uInput == "" :
+                continue
             else:
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
                 self.tui.print_wrong()
