@@ -30,9 +30,9 @@ class API():
             print("\n" * API.NUMBER_OF_EMPTY_LINES)
             self.tui.print_menu()
             if self.hang.get_user() == "" :
-                uInput = input("Make your choice: ")
+                uInput = input("Veldu aðgerð: ")
             else :
-                uInput = input(self.hang.get_user() + ": ")
+                uInput = input("({}) {}: ".format(self.hang.max_wrong_guesses, self.hang.get_user()))
             if uInput == "p" or uInput == "P":
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
                 self.start_game()
@@ -55,6 +55,16 @@ class API():
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
                 username = input("Choose a username: ")
                 self.hang.set_user(username)
+                self.hang.set_max_wrong_guesses() # Resets maximum guesses to default on new user (10)
+            elif uInput == "g" or uInput == "G":
+                print("\n" * API.NUMBER_OF_EMPTY_LINES)
+                max_guesses = input("Enter new maximum guesses (default 10): ")
+                try :
+                    max_guesses = int(max_guesses)
+                    self.hang.set_max_wrong_guesses(max_guesses)
+                except :
+                    print("You have to type in a number")
+                    time.sleep(2)
             else:
                 print("\n" * API.NUMBER_OF_EMPTY_LINES)
                 self.tui.print_wrong()

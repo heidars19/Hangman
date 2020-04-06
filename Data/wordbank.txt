@@ -12,7 +12,7 @@ afturhaldsstefna,1,1,6,2020-04-04
 akbraut,0,0,0,01.01.2020
 Akranes,0,0,0,01.01.2020
 akrein,0,0,0,01.01.2020
-akurarfi,0,0,0,01.01.2020
+akurarfi,1,1,6,2020-04-06
 Akureyri,0,0,0,01.01.2020
 akurgæs,1,0,10,2020-04-05
 akurstjarna,0,0,0,01.01.2020
@@ -20,7 +20,7 @@ akuryrkja,0,0,0,01.01.2020
 alaskavíðir,1,0,10,2020-04-05
 alaskaösp,0,0,0,01.01.2020
 aldingarður,0,0,0,01.01.2020
-aldursmunur,1,0,10,2020-04-06
+aldursmunur,2,0,22,2020-04-06
 alpahúfa,0,0,0,01.01.2020
 andaglas,0,0,0,01.01.2020
 andarungi,1,1,9,2020-04-04
@@ -37,7 +37,7 @@ atviksorð,0,0,0,01.01.2020
 atvikssaga,1,1,5,2020-04-05
 augabrún,0,0,0,01.01.2020
 augljós,0,0,0,01.01.2020
-augnablik,1,0,10,2020-04-06
+augnablik,2,1,18,2020-04-06
 augnfró,0,0,0,01.01.2020
 augnlæknir,0,0,0,01.01.2020
 augntönn,1,0,10,2020-04-06
@@ -58,7 +58,7 @@ aðstoðarforstjóri,0,0,0,01.01.2020
 aðstoðarmaður,0,0,0,01.01.2020
 bakuggi,0,0,0,01.01.2020
 bakvörður,0,0,0,01.01.2020
-banabeður,0,0,0,01.01.2020
+banabeður,2,2,17,2020-04-06
 bandalag,0,0,0,01.01.2020
 Bandaríkin,0,0,0,01.01.2020
 bankaútibú,0,0,0,01.01.2020
@@ -80,8 +80,8 @@ beinmergur,0,0,0,01.01.2020
 beitieski,1,0,10,2020-04-05
 beitilyng,0,0,0,01.01.2020
 beitukóngur,0,0,0,01.01.2020
-bekkjarfélagi,0,0,0,01.01.2020
-bekkjarlalli,0,0,0,01.01.2020
+bekkjarfélagi,1,0,12,2020-04-06
+bekkjarlalli,1,0,12,2020-04-06
 belgjastör,0,0,0,01.01.2020
 beltisdýr,0,0,0,01.01.2020
 beltisstaður,2,1,16,2020-04-06

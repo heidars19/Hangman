@@ -16,7 +16,7 @@ class Hangman :
         self.result = False # Win or loss
 
 
-    def set_max_wrong_guesses(self, number_of_guesses) :
+    def set_max_wrong_guesses(self, number_of_guesses=10) :
         ''' Changes maximum guesses for each game. Default is 10 '''
         if number_of_guesses > 0 and isinstance(number_of_guesses, int)  :
             self.max_wrong_guesses = number_of_guesses
@@ -130,21 +130,24 @@ class Hangman :
         self.chr_list = []
         self.gameon = True
         
+        print("Þú átt {} tilraunir eftir.".format(self.max_wrong_guesses))
+        print(self.print_dashline())
+        print()
+        
         while self.gameon :
             self.duplicate_selection = False
             if self.word == self.dash_line:
                 self.result = True
                 self.gameon = False # Game over
                 break
-            user_input = input("Guess the word: ")
+            user_input = input("({})Settu inn ágiskun: ".format(self.max_wrong_guesses))
             if len(user_input) == 1:
                 if user_input not in self.chr_list:
                     self.chr_list.append(user_input)
                 else:
                     self.duplicate_selection = True
-            for i in range(50):
-                print()
-            print("Þú átt {} tilraunir eftir.".format(self.max_wrong_guesses - self.guesses))
+            print("\n" * 50)
+            print("Þú átt {} tilraunir eftir.".format(self.max_wrong_guesses - self.guesses - 1))
             print("Valdir stafir: " + str(self.chr_list))
             if self.duplicate_selection == False:
                 self.result = self.compare_sting(user_input)
@@ -238,4 +241,9 @@ class Hangman :
         / \  |
              |
         =========''']
-        return HANGMANPICS[self.guesses]
+        
+        if self.max_wrong_guesses > 10 :
+            hangmanpic = self.guesses - self.max_wrong_guesses + 10
+            if hangmanpic < 0 :
+                hangmanpic = 0
+        return HANGMANPICS[hangmanpic]

@@ -1,6 +1,6 @@
 class TUI():
     def __init__(self):
-        self.user = "(S)et user"
+        self.user = ""
         self.main_menu = """
  /$$   /$$                                                                
 | $$  | $$                                                                
@@ -16,7 +16,7 @@ class TUI():
 """
         self.menu_selection = """
                         Type in the character to select operation
-                (S)et user        (P)lay        (H)ighscores         (Q)uit        
+             Max (G)uesses    (S)et user    (P)lay    (H)ighscores    (Q)uit        
 
         """
         self.wrong_selection = """
@@ -56,12 +56,15 @@ class TUI():
         
         header= "Sæti Nafn     Vinningar  Ágiskanir    Dags"
         print(header)
+
         for i in range(10) :
             hiscore_list = bucket.data
-            print(" {} ---- {} ---- {} ---- {} ---- {}".format(i, hiscore_list[0], hiscore_list[1], hiscore_list[2], hiscore_list[3]))
-            bucket = bucket.next
-        
-        # print(bucket)
+            print(" {} ---- {} ---- {} ---- {} ---- {}".format(i+1, hiscore_list[0], hiscore_list[1], hiscore_list[2], hiscore_list[3]))
+            if bucket.next :    
+                bucket = bucket.next
+            else :
+                break
+
 
         
         
