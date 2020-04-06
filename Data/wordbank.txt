@@ -28,7 +28,7 @@ andvarp,0,0,0,01.01.2020
 annríki,0,0,0,01.01.2020
 apamaður,0,0,0,01.01.2020
 appelsínugulur,0,0,0,01.01.2020
-appelsínusafi,1,1,6,2020-04-05
+appelsínusafi,2,2,9,2020-04-06
 armband,0,0,0,01.01.2020
 armbandsúr,1,1,7,2020-04-05
 aronsvöndur,1,0,10,2020-04-05
@@ -37,10 +37,10 @@ atviksorð,0,0,0,01.01.2020
 atvikssaga,1,1,5,2020-04-05
 augabrún,0,0,0,01.01.2020
 augljós,0,0,0,01.01.2020
-augnablik,0,0,0,01.01.2020
+augnablik,1,0,10,2020-04-06
 augnfró,0,0,0,01.01.2020
 augnlæknir,0,0,0,01.01.2020
-augntönn,0,0,0,01.01.2020
+augntönn,1,0,10,2020-04-06
 Austurland,0,0,0,01.01.2020
 Austurríkismaður,1,1,17,2020-04-04
 auðnutittlingur,0,0,0,01.01.2020
@@ -52,7 +52,7 @@ aðdráttur,0,0,0,01.01.2020
 aðdáandi,0,0,0,01.01.2020
 aðfangadagur,1,1,24,2020-04-04
 aðfaranótt,0,0,0,01.01.2020
-aðgát,0,0,0,01.01.2020
+aðgát,1,1,8,2020-04-06
 aðskilnaðarstefna,1,1,4,2020-04-05
 aðstoðarforstjóri,0,0,0,01.01.2020
 aðstoðarmaður,0,0,0,01.01.2020
@@ -62,7 +62,7 @@ banabeður,0,0,0,01.01.2020
 bandalag,0,0,0,01.01.2020
 Bandaríkin,0,0,0,01.01.2020
 bankaútibú,0,0,0,01.01.2020
-bardagalist,0,0,0,01.01.2020
+bardagalist,1,1,2,2020-04-06
 barkakýli,1,0,10,2020-04-05
 barmmerki,0,0,0,01.01.2020
 barnalæknir,0,0,0,01.01.2020
@@ -84,7 +84,7 @@ bekkjarfélagi,0,0,0,01.01.2020
 bekkjarlalli,0,0,0,01.01.2020
 belgjastör,0,0,0,01.01.2020
 beltisdýr,0,0,0,01.01.2020
-beltisstaður,1,0,10,2020-04-05
+beltisstaður,2,1,16,2020-04-06
 bensínsala,0,0,0,01.01.2020
 bensínstöð,0,0,0,01.01.2020
 bergkvika,1,1,40,2020-04-04

@@ -23,7 +23,7 @@ class Highscores (FileHandlr):
             next_id = 0
             next(reader) # Skip header
             for row in reader :
-                print("Next id: {}".format(next_id))
+                # print("Next id: {}".format(next_id))
                 if next_id < int(row[0]) :
                     next_id = int(row[0])
         return str(next_id + 1)
@@ -37,7 +37,7 @@ class Highscores (FileHandlr):
     
     def __append_to_file(self, key, data) :
         new_line = "\n" + str(key) + self.__list_to_str(data)
-        print(new_line)
+        # print(new_line)
         with open(self._filename, 'a', encoding='UTF-8') as file_to_append_to:
             file_to_append_to.write(new_line)
                     

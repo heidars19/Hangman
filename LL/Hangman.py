@@ -6,6 +6,8 @@ class Hangman :
         self.wordbank.read_file_to_datastructure()
         self.max_wrong_guesses = 10
         self.guesses = 0
+        self.user_guesses = 0
+        self.user_winstreak = 0
         self.word = None
         self.buffer_word = None
         self.dash_line = None
@@ -75,10 +77,23 @@ class Hangman :
                 return False
         return False
 
+    def user_status(self) :
+        return [self.user, str(self.user_winstreak), str(self.user_guesses), str(datetime.date.today())]
+        
     def register_results(self) :
         ''' Updates statistics behind a word.\n
         Updates both data structure and file. '''
-        data = self.wordbank.find(self.word)#.strip('\'\n"[]').split(',')
+        data = self.wordbank.find(self.word)
+        if self.user != "" :
+            if self.result : # Game won, so update results
+                self.user_guesses += int(data[2])
+                self.user_winstreak += 1
+            else : # Game lost, so reset winstreaks
+                highscores = Highscores()
+                highscores.update(self.user_status())
+                self.user_guesses = 0
+                self.user_winstreak = 0
+    
         data[0] = str(int(data[0]) + 1)
         if self.result : # True if win
             data[1] = str(int(data[1]) + 1)

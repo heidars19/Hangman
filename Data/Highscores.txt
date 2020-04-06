@@ -16,3 +16,4 @@ id,username,winstreak,guesses,date
 15,Heidar,18,19,2020-04-04
 16,Heidar,12,22,2020-04-04
 17,Heidar,12,22,2020-04-04
+18,Heiðar,2,6,2020-04-06
